@@ -10,7 +10,9 @@ to get a sense for what these codes can do.
 To tailor the code for your application, read below:
 
 STEP 0: Untar all the .zip files!!!
+
 The only script you should need to -EDIT- is Setup_Calculation_Parameters.m.
+
 In Setup_Calculation_Parameters.m, you must tell the code 
 (1) Which surface wave you are interested in (edit the variable RayleighorLove, setting it 1 for Rayleigh and 0 for Love), 
 (2) Which periods you are interested in, (enter a vector of periods, e.g. [50 100])
