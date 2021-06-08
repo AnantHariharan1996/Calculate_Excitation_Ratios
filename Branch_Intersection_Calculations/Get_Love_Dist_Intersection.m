@@ -1,4 +1,4 @@
-function [ MinorX, MajorX ] = Get_Rayleigh_Dist_Intersection( Period,MaxN )
+function [ MinorX, MajorX ] = Get_Love_Dist_Intersection( Period,MaxN )
 % for two specific modes, with group velocity in km/s
 % calculate the distance at which the modes intersect.
 % assumes the same period...
