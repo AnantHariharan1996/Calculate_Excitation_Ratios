@@ -18,13 +18,13 @@ MaxN = 25;
 
 % Are we interested in minor or major-arc overtone interference?
 % Set the variable to 1 for major, 0 for minor
-MinorOrMajor = 1;
+MinorOrMajor = 0;
 
 %Enter the input file name here in quotes (' '). It must be on your path.
 Inputfilename = 'EventList_ExampleInputFile.txt';
 
 % Visualize the Results?
-VisualizeMyResults = 1;
+VisualizeMyResults = 0;
 
 
 %%%%%%%%%%%%%%%% Edit Parameters above here
