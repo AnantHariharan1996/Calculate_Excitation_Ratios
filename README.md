@@ -16,7 +16,7 @@ The only script you should need to -EDIT- is Setup_Calculation_Parameters.m.
 In Setup_Calculation_Parameters.m, you must tell the code 
 (1) Which surface wave you are interested in (edit the variable RayleighorLove, setting it 1 for Rayleigh and 0 for Love), 
 (2) Which periods you are interested in, (enter a vector of periods, e.g. [50 100])
-(3) Which kind of interference you are interested in (Major-or-Minor-Arc), (1 for Major, 0 for Minor) 
+(3) Which kind of excitation you are interested in (Major-or-Minor-Arc), (1 for Major, 0 for Minor) 
 (4) The name of your input file (e.g. 'EventList_ExampleInputFile.txt'), and 
 (5) Whether you want to make some brief plots of your results (set VisualizeMyResults to 1 if so).
 *for (5), the script plots excitation and excitation ratios as a function of depth. 
