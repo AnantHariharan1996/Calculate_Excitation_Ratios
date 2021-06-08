@@ -14,16 +14,16 @@ RayleighOrLove = 1;
 Periodlist = [50:25:100];
 
 % How many overtones should we be considering in the calculation?
-MaxN = 25;
+MaxN = 0;
 
 % Are we interested in minor or major-arc overtone interference?
 % Set the variable to 1 for major, 0 for minor
 MinorOrMajor = 0;
 
 %Enter the input file name here in quotes (' '). It must be on your path.
-Inputfilename = 'EventList_ExampleInputFile.txt';
+Inputfilename = 'DipSlip_Fault_70km_MultiAz.txt';
 
-% Visualize the Results?
+% Visualize the Results? This is only really useful when thinking about excitation ratios.
 VisualizeMyResults = 0;
 
 
