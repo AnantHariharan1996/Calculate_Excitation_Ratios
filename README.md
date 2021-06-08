@@ -73,10 +73,9 @@ in Hariharan et al., 2021 to calculate the intersection distance between the FM 
 major-arc overtones, for Rayleigh and Love waves. 
 
 The file ATL2a_DistintersectionList_50Overtones contains this for Rayleigh waves, organized by period
-in the left column and each column after corresponding to an increasing overtone number.
+in the left column and each column after corresponding to an increasing overtone number. 
+The folder atl2a_TUC_br0to50 contains files containing period, grp.vel, and phase vel, for the first 50 overtones and FM for ATL2a.
 
-The folder atl2a_TUC_br0to50 contains files containing period, grp.vel, and phase vel, for the first 50 overtones
-and FM for ATL2a.
 ----
 
 This code is probably not perfect!
