@@ -34,7 +34,7 @@ Term1 = Udot*Mrr + (Mtt+Mpp).*(1/source_rad).*(U-0.5*k*V);
 Term2 = -1*(k*V./source_rad).*(Mtp.*sind(2.*AZI ) +  0.5.*(Mtt-Mpp).* cosd(2.*AZI ));
 Term3 = ((-1)^s)*(Vdot+(1./source_rad).*(k*U-V)).*(Mrp.*sind(AZI ) + Mrt.*cosd(AZI ));
 
-Complex_Rad_Pattern = omega*(Term1.*exp(1i*pi/4)+Term2.*exp(-1*1i*pi/4)+Term3.*exp(1i*pi/4));
+Complex_Rad_Pattern = omega*(Term1.*exp(1i*pi/4)+Term2.*exp(1*1i*pi/4)+Term3.*exp(-1i*pi/4));
 %Complex_Rad_Pattern = omega*(Term3);
 
 end
