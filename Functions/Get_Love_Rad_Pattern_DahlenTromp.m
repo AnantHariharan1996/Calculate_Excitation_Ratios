@@ -7,7 +7,7 @@ function [ Complex_Rad_Pattern,Term1,Term2 ] = Get_Love_Rad_Pattern_DahlenTromp(
 % Uses equation 25 in Wang and Dahlen
 % Assumes the eigenfunction is very well sampled in radius space
 % Assumes the depth you're interested in is in METERS
-
+% ASSUMES EARTH RADIUS HERE
 RE_m = 6371000;
 omega = 2*pi/period;
 k = omega/Love_Phvel;
