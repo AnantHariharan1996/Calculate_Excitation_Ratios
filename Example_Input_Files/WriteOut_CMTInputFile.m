@@ -12,4 +12,4 @@ OUTPUT(ijk,8)=9999;
 IDlist{ijk} = earthquake.EventName;
 end
 dlmwrite(['CMTCATALOG_ALL.txt'],OUTPUT,'delimiter','\t','precision','%.6f')
-writecell(IDlist, 'IDlist_for_CMTCATALOG_ALL')
+writecell(IDlist', 'IDlist_for_CMTCATALOG_ALL')
