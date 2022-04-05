@@ -6,25 +6,21 @@ clc; close all;
 
 addpath(genpath(pwd))
 
-   rn = 6371000;
-    bigg = 6.6723e-11; % m/kg/s2
-    rhobar = 5515; % kg/m3
-    scale = 1/(rn*sqrt(rn*pi*bigg)*rhobar);
+Load_Density
+Eigfname = 'S_B0_50s';
+tmpinfo=load(Eigfname);
+U=tmpinfo(:,2);
+Uderiv=tmpinfo(:,3);
+V=tmpinfo(:,4);
+Vderiv=tmpinfo(:,5);
+r=tmpinfo(:,1);    
 
-EigInfo = load('T_B9_75s')
+period = 50;
+omega = 2*pi/period;
 
-W=EigInfo(:,2);
-Wderiv=EigInfo(:,3);
-r=EigInfo(:,1);    
-
-period = 75;
-
-% get density here
-
-% scale = 1/(rn*sqrt(rn*pi*bigg)*rhobar)
-% such that 
-% 1 = trapz(r , rho.*(U.^2+V.^2).*r.^2 ) * omega^2;
-% 1 = trapz(r , rho.*(W.^2     ).*r.^2 ) * omega^2;
+% interpolate density onto eigenfunction coords
+Density_Interped = interp1(PREM_REF_Radius_meters,PREM_REF_Density,r);
+val = trapz(r , Density_Interped.*(U.^2+V.^2).*r.^2 ) * omega^2;
 
 
     
