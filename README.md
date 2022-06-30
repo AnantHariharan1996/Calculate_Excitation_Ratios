@@ -1,11 +1,10 @@
 # Calculate_Excitation_Ratios
 README: 
 
-This folder contains several scripts that are designed to make calculating excitation ratios a trivial task. 
+This folder contains scripts that are designed to help calculate surface wave excitation and excitation ratio.
 The main script that you run is Calc_Excitation_Ratios_Main. 
 You can do this right now, using the preconfigured settings, if you want
 to get a sense for what these codes can do. 
-[Note that all calculations assume the oceanic Earth model ATL2a (James et al., 2014)]
 
 To tailor the code for your application, read below:
 
