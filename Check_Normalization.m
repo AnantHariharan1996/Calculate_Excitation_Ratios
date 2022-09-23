@@ -20,7 +20,11 @@ omega = 2*pi/period;
 
 % interpolate density onto eigenfunction coords
 Density_Interped = interp1(PREM_REF_Radius_meters,PREM_REF_Density,r);
+
+% perform integral
 val = trapz(r , Density_Interped.*(U.^2+V.^2).*r.^2 ) * omega^2;
+
+disp(val)
 
 
     

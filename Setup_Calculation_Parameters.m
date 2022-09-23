@@ -11,7 +11,7 @@ RayleighOrLove = 0;
 % Enter the list of periods you want to use here
 % This vector can even be just a 1x1 scalar or a vector
 % e.g. Periodlist = [50 75 100 125];
-Periodlist = [25 40 50 75 100 125];
+Periodlist = [35];
 
 % How many overtones should we be considering in the calculation?
 MaxN = 1;
@@ -21,7 +21,7 @@ MaxN = 1;
 MinorOrMajor = 0;
 
 %Enter the input file name here in quotes (' '). It must be on your path.
-Inputfilename = 'CMTCATALOG_ALL.txt';
+Inputfilename = 'EkstromUSArray_ExcitationRatioInputFile_35s';
 
 % Visualize the Results? This is only really useful when thinking about excitation ratios.
 VisualizeMyResults = 1;
