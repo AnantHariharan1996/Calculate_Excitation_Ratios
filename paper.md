@@ -40,12 +40,11 @@ Measurements of the phase and amplitude of surface waves generated from earthqua
 
 We implement equation 11.34 in Dahlen \& Tromp as follows:
 
-$$  R = {} & \omega[(|M_{rr} \dot{U_s} + (M_{\theta \theta} + M_{\phi \phi}) r_s^{-1}(U_s-\frac{1}{2} kV_s)) e^{i \pi/4}  \\ & + (-1)^q (\dot{V_s} - r^{-1}_s V_s + k r^{-1}_s U_s)(M_{r \phi} \sin \Psi + M_{r \theta} \cos \Psi) e^{-i \pi/4}  \\ & - k r^{-1}_s V_s[M_{\theta \phi} \sin(2 \Psi) + \frac{1}{2}(M_{\theta \theta}-M_{\phi \phi}) \cos(2 \Psi)] e^{i \pi/4}] $$
+$$  R =  \omega[(|M_{rr} \dot{U_s} + (M_{\theta \theta} + M_{\phi \phi}) r_s^{-1}(U_s-\frac{1}{2} kV_s)) e^{i \pi/4}  + (-1)^q (\dot{V_s} - r^{-1}_s V_s + k r^{-1}_s U_s)(M_{r \phi} \sin \Psi + M_{r \theta} \cos \Psi) e^{-i \pi/4} - k r^{-1}_s V_s[M_{\theta \phi} \sin(2 \Psi) + \frac{1}{2}(M_{\theta \theta}-M_{\phi \phi}) \cos(2 \Psi)] e^{i \pi/4}] $$
 
 
 
-$$L = {} & \omega((-1)^q (\dot{W_s} - r^{-1}_s W_s)(M_{r\theta} \sin(\Psi) - M_{r \phi} \cos(\Psi)) e^{-i \pi/4}  \\
-& - k r^{-1}_s W_s [\frac{1}{2} (M_{\theta \theta} - M_{\phi\phi}) \sin (2 \Psi) - M_{\theta \phi} \cos (2 \Psi)]e^{i \pi/4})$$
+$$L = \omega((-1)^q (\dot{W_s} - r^{-1}_s W_s)(M_{r\theta} \sin(\Psi) - M_{r \phi} \cos(\Psi)) e^{-i \pi/4} - k r^{-1}_s W_s [\frac{1}{2} (M_{\theta \theta} - M_{\phi\phi}) \sin (2 \Psi) - M_{\theta \phi} \cos (2 \Psi)]e^{i \pi/4})$$
 
 and the source amplitude is the absolute value of R and L and the source phase is the arctangent of the ratio of the real and imaginary components.
 
