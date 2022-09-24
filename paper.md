@@ -43,7 +43,7 @@ We implement equation 11.34 in Dahlen \& Tromp as follows:
 
 \begin{equation}
 \begin{array}{l}
-L = \omega((-1)^q (\dot{W_s} - r^{-1}_s W_s)(M_{r\theta} \sin(\Psi) - M_{r \phi} \cos(\Psi)) e^{-i \pi/4} - k r^{-1}_s W_s [\frac{1}{2} (M_{\theta \theta} - M_{\phi\phi}) \sin (2 \Psi) - M_{\theta \phi} \cos (2 \Psi)]e^{i \pi/4})
+L = \omega((-1)^q (\dot{W_s} - r^{-1}_s W_s)(M_{r\theta} \sin(\Psi) - M_{r \phi} \cos(\Psi)) e^{-i \pi/4} - \\ k r^{-1}_s W_s [\frac{1}{2} (M_{\theta \theta} - M_{\phi\phi}) \sin (2 \Psi) - M_{\theta \phi} \cos (2 \Psi)]e^{i \pi/4})
 \end{array}
 \end{equation}
 
