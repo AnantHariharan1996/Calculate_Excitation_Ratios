@@ -1,71 +1,44 @@
 ---
-title: 'Gala: A Python package for galactic dynamics'
+title: 'ExciteSW: A MATLAB/Octave tool for calculation of surface wave and overtone excitation from Earthquakes on Earth and other Planetary Bodies'
 tags:
-  - Python
-  - astronomy
-  - dynamics
-  - galactic dynamics
-  - milky way
+  - MATLAB
+  - Octave
+  - Seismology
+  - Surface waves
+  - Free oscillations
+  - Earthquakes
 authors:
-  - name: Adrian M. Price-Whelan
-    orcid: 0000-0000-0000-0000
-    equal-contrib: true
-    affiliation: "1, 2" # (Multiple affiliations must be quoted)
-  - name: Author Without ORCID
-    equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
-    affiliation: 2
-  - name: Author with no affiliation
-    corresponding: true # (This is how to denote the corresponding author)
-    affiliation: 3
+  - name: Anant Hariharan
+    orcid: 0000-0001-5750-2632
+    affiliation: 1 # (Multiple affiliations must be quoted)
+  - name: Colleen A. Dalton
+    orcid: 0000-0003-0932-7539
+    affiliation: 1
 affiliations:
- - name: Lyman Spitzer, Jr. Fellow, Princeton University, USA
+ - name: Department of Earth, Environmental, and Planetary Sciences, Brown University, Providence, RI, USA
    index: 1
- - name: Institution Name, Country
-   index: 2
- - name: Independent Researcher, Country
-   index: 3
-date: 13 August 2017
+date: 13 September 2022
 bibliography: paper.bib
 
 # Optional fields if submitting to a AAS journal too, see this blog post:
 # https://blog.joss.theoj.org/2018/12/a-new-collaboration-with-aas-publishing
-aas-doi: 10.3847/xxxxx <- update this with the DOI from AAS once you know it.
-aas-journal: Astrophysical Journal <- The name of the AAS journal.
 ---
 
 # Summary
 
-The forces on stars, galaxies, and dark matter under external gravitational
-fields lead to the dynamical evolution of structures in the universe. The orbits
-of these bodies are therefore key to understanding the formation, history, and
-future state of galaxies. The field of "galactic dynamics," which aims to model
-the gravitating components of galaxies to study their structure and evolution,
-is now well-established, commonly taught, and frequently used in astronomy.
-Aside from toy problems and demonstrations, the majority of problems require
-efficient numerical tools, many of which require the same base code (e.g., for
-performing numerical orbit integration).
+The `ExciteSW` software package allows users to rapidly calculate, within a normal-mode framework, the radiation pattern and earthquake source excitation (amplitude) and phase for the Rayleigh and Love wave fundamental mode and overtones generated from an earthquake. By incorporating pre-calculated eigenfunctions, the user is saved the effort of solving the surface-wave eigenproblem and the calculations can be completed extremely rapidly. Options are provided to calculate excitation for homogenous continental and oceanic Earth, Lunar, and Martian models, as well as for a laterally heterogeneous Earth model.
 
 # Statement of need
 
-`Gala` is an Astropy-affiliated Python package for galactic dynamics. Python
-enables wrapping low-level languages (e.g., C) for speed without losing
-flexibility or ease-of-use in the user-interface. The API for `Gala` was
-designed to provide a class-based and user-friendly interface to fast (C or
-Cython-optimized) implementations of common operations such as gravitational
-potential and force evaluation, orbit integration, dynamical transformations,
-and chaos indicators for nonlinear dynamics. `Gala` also relies heavily on and
-interfaces well with the implementations of physical units and astronomical
-coordinate systems in the `Astropy` package [@astropy] (`astropy.units` and
-`astropy.coordinates`).
+Measurements of the phase and amplitude of surface waves generated from earthquakes are essential to improve our understanding of Earth structure and earthquake source processes. Successful modeling and use of these measurements requires accurately accounting for the contribution to these measurements from the earthquake of interest, which has a significant impact on the character of surface wave measurements. For instance, studies using surface-wave observables for imaging sometimes implement quality-control steps to eliminate surface wave measurements near nodes in the radiation pattern.
 
-`Gala` was designed to be used by both astronomical researchers and by
-students in courses on gravitational dynamics or astronomy. It has already been
-used in a number of scientific publications [@Pearson:2017] and has also been
-used in graduate courses on Galactic dynamics to, e.g., provide interactive
-visualizations of textbook material [@Binney:2008]. The combination of speed,
-design, and support for Astropy functionality in `Gala` will enable exciting
-scientific explorations of forthcoming data releases from the *Gaia* mission
-[@gaia] by students and experts alike.
+ However, calculating the fundamental-mode and overtone radiation pattern is a non-trivial problem and easy-to-use codes to enable this calculation are non-existent, particularly for applications at the scale of a large dataset of multiple earthquakes and for surface wave overtones. Traditional workflows to do so require solving the surface-wave eigenproblem, which is a difficult task that has been tackled using multiple approaches. The involved nature of this problem has precluded the availability of easy-to-use codes to calculate surface-wave excitation.
+
+`ExciteSW` is an MATLAB package for the calculation of surface-wave radiation pattern and rapid computation of surface-wave phase and amplitude. `ExciteSW` works within a normal-mode framework, and uses a database of pre-calculated eigenfunctions to circumvent the majority of the computational effort in a typical workflow to calculate surface-wave excitation. The code is designed with ease-of-use as a first priority, and only requires a single input file with the source depth and moment tensor specified for earthquakes of interest in order to run. `ExciteSW` was designed to be used by both seismological researchers and by students. The ease of computing surface wave radiation patterns will enable more researchers to conduct nuanced analyses of surface wave measurements by accounting for earthquake source parameters.
+
+# Functionality and Implementation
+
+In order to run then
 
 # Mathematics
 
