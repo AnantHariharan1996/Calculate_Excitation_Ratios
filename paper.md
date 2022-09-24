@@ -47,7 +47,7 @@ $$  R = {} & \omega[(|M_{rr} \dot{U_s} + (M_{\theta \theta} + M_{\phi \phi}) r_s
 $$L = {} & \omega((-1)^q (\dot{W_s} - r^{-1}_s W_s)(M_{r\theta} \sin(\Psi) - M_{r \phi} \cos(\Psi)) e^{-i \pi/4}  \\
 & - k r^{-1}_s W_s [\frac{1}{2} (M_{\theta \theta} - M_{\phi\phi}) \sin (2 \Psi) - M_{\theta \phi} \cos (2 \Psi)]e^{i \pi/4})$$
 
-and the source amplitude is the absolute value of R and L and the source phase is the arctangent of the ratio of the real and imaginary components. 
+and the source amplitude is the absolute value of R and L and the source phase is the arctangent of the ratio of the real and imaginary components.
 
 
 # Mathematics
@@ -83,12 +83,6 @@ For a quick reference, the following citation commands can be used:
 
 # Figures
 
-Figures can be included like this:
-![Caption for example figure.\label{fig:example}](figure.png)
-and referenced from text using \autoref{fig:example}.
-
-Figure sizes can be customized by adding an optional second parameter:
-![Caption for example figure.](figure.png){ width=20% }
 
 # Acknowledgements
 
