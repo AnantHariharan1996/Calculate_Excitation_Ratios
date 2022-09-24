@@ -42,9 +42,9 @@ We implement equation 11.34 in Dahlen \& Tromp as follows:
 
 
 \begin{equation}
-
+\begin{array}{l}
 L = \omega((-1)^q (\dot{W_s} - r^{-1}_s W_s)(M_{r\theta} \sin(\Psi) - M_{r \phi} \cos(\Psi)) e^{-i \pi/4} - k r^{-1}_s W_s [\frac{1}{2} (M_{\theta \theta} - M_{\phi\phi}) \sin (2 \Psi) - M_{\theta \phi} \cos (2 \Psi)]e^{i \pi/4})
-
+\end{array}
 \end{equation}
 
 where $\omega$ is the angular frequency, $k$ is the wavenumber,  $M_n$ represents the components of the moment tensor, $r_s$ is the source radius, $\Psi$ is the azimuth measured counterclockwise from south, $q$ is the wavegroup index, and $U_s$, $V_s$, $W_s$, $\dot{U_s}$, $\dot{V_s}$, and $\dot{W_s}$ are the normalized displacement eigenfunctions and their derivatives, respectively, evaluated at the source depth.
