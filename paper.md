@@ -30,7 +30,7 @@ The open-source `ExciteSurf` software package allows users to rapidly calculate 
 
 # Statement of need
 
-Measurements of the frequency-dependent phase and amplitude of surface waves generated from earthquakes are essential to improve our understanding of Earth structure and earthquake source processes. Successful modeling and use of these measurements requires accurately accounting for the contribution to these measurements from the earthquake of interest, which has a significant impact on the character of surface wave measurements. For instance, studies using surface-wave observables for imaging sometimes implement quality-control steps to eliminate surface wave measurements near nodes in the radiation pattern [@godfrey2019comparison].
+Measurements of the frequency-dependent phase and amplitude of surface waves generated from earthquakes are essential to improve our understanding of Earth structure and earthquake source processes. Successful modeling and use of these measurements requires accurately accounting for the contribution to these measurements from the earthquake of interest, which has a significant impact on the character of surface wave measurements. For instance, studies using surface-wave observables for imaging of earth structure sometimes implement quality-control steps to eliminate surface wave measurements near nodes in the radiation pattern [@godfrey2019comparison].
 
  However, calculating the fundamental-mode and overtone radiation pattern is a non-trivial problem and easy-to-use codes to enable this calculation are non-existent, particularly for applications at the scale of a large dataset of multiple earthquakes and for surface wave overtones. Traditional workflows to do so require solving the surface-wave eigenproblem, which is a computationally difficult task that has been tackled using multiple approaches. The involved nature of this problem has precluded the availability of easy-to-use codes to calculate surface-wave excitation.
 
@@ -61,6 +61,6 @@ To run the code, the user must edit the parameters in a `setup_parameter` script
 
 # Acknowledgements
 
-We thank Joshua Russell and Yiran Huang for testing and using initial versions of `ExciteSurf` and Erica Nathan for logo design.
+We thank Joshua Russell and Yiran Huang for testing and using initial versions of `ExciteSurf` and Erica Nathan for logo design. This work was supported by the U.S National Science Foundation under grants EAR-1553367 and EAR-1829401 to C.A.D., and by an NSF Graduate Research Fellowship (DGE-16-44760) to A.H. The S362ANI Earth model can be downloaded from the IRIS EMC at \url{https://ds.iris.edu/ds/products/emc-s362ani/}.
 
 # References

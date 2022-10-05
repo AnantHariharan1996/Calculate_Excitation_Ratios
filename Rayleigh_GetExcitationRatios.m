@@ -4,7 +4,7 @@
 
 % Loop over overtones
 for currN = [0:1:MaxN]
-
+    % First load
     fname=[ 'atl2a_Rayl_TUc_br' num2str(currN) '.dms'];
     tucinfo=load(fname);
     Tlist=tucinfo(:,1);
