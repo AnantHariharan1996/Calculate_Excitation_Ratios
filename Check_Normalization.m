@@ -5,9 +5,9 @@ clear; clc; close all;
 addpath(genpath(pwd))
 
 %% Setup parameters to isolate which eigenfunctions do you want to check
-Periodlist = [50 75 100 ]; RayleighOrLove= 0;
+Periodlist = [50 75 100 ]; RayleighOrLove= 1;
 % Which velocity model do you want to use? Choices: ATL2a, PREM...
-Velmod = 'atl2a';
+Velmod = 'prem_35';
 % Which overtones to consider in this calculation
 Nstocheck = [0:5];
 %%%%%%%%%%%%%%%% only edit code above this line
@@ -52,13 +52,13 @@ for currN = Nstocheck
         full_dx_match = find(N == currN & Periods == BestPeriod);
         tmpinfo = Eigmat(:,:,full_dx_match);
 
-        if RayleighOrLove
+        if RayleighOrLove == 1
             U=tmpinfo(:,2);
             Uderiv=tmpinfo(:,3);
             V=tmpinfo(:,4);
             Vderiv=tmpinfo(:,5);
             r=tmpinfo(:,1);   
-        else
+        elseif RayleighOrLove == 0
             W=tmpinfo(:,2);
             Wderiv=tmpinfo(:,3);
             r=tmpinfo(:,1);    
@@ -92,6 +92,6 @@ for ijk = 1:length(Fail_List_N)
 end
 else
 disp(' ')
-disp('All eigenfunctions you have inspected broadly meet the normalization requirement!')
+disp('All eigenfunctions you have inspected meet the normalization requirement!')
 
 end
