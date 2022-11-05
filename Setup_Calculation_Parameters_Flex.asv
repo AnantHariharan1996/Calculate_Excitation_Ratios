@@ -1,4 +1,4 @@
-%% Edit Parameters below here, in this file only
+ %% Edit Parameters below here, in this file only
 %%
 clear; close all; clc;
 %%%%%%%%%%%%%%%%
@@ -11,7 +11,7 @@ RayleighOrLove = 0;
 % Enter the list of periods you want to use here
 % This vector can even be just a 1x1 scalar or a vector
 % e.g. Periodlist = [50 75 100 125];
-Periodlist = [50];
+Periodlist = [125];
 
 % How many overtones should we be considering in the calculation?
 MaxN = 1;
@@ -26,34 +26,47 @@ Inputfilename = 'StrikeSlip_Fault.txt';
 % Visualize the Results? This is only really useful when thinking about excitation ratios.
 VisualizeMyResults = 1;
 
+% Which velocity model do you want to use?
+% choices are ATL2a, PREM...
+Velmod = 'atl2a';
+
+% Output excitation
+Output_As_Spectra = 0;
+
 
 %%%%%%%%%%%%%%%% Edit Parameters above here
+if RayleighOrLove
+modename = 'spheroidal';
+else
+modename = 'toroidal';
+end
+
+Eigmatname = [Velmod '_' modename '_eigfxns_array.mat'];
+Eiglookupname = [Velmod '_' modename '_TCUNL_Lookup.mat'];
+
+load(Eigmatname)
+load(Eiglookupname)
+Periods = Lookuptable(1,:);
+PhVel = Lookuptable(2,:);
+N = Lookuptable(4,:);
+L = Lookuptable(5,:);
+
 
 
 % Check that this works at all periods and overtones
 for ijk = 1:length(Periodlist)
     Period=Periodlist(ijk);
     for n = 0:MaxN
-        if RayleighOrLove == 1
-       eigfname=['S_B' num2str(n) '_' num2str(Period) 's']; 
-        elseif RayleighOrLove == 0
-       eigfname=['T_B' num2str(n) '_' num2str(Period) 's']; 
-        
+        currdx = find(N == n);
+        tmpperiodlist = Periods(currdx);
+        if min(Periods) > Period || max(Periods) < Period
+           error(['ERROR: eigenfunctions do not span the period of interest for n=' num2str(n) '. Use periods to be between ' num2str(max(tmpperiodlist)) ' and ' num2str(min(tmpperiodlist)) 's'])        
         end
-        
-        %check existence of file
-       if exist(eigfname,'file') ~= 2
-           disp(['The Eigenfunction ' eigfname ', for mode ' num2str(n) ' at ' num2str(Period) 's does not exist.'])
-            error('Error: Eigenfunction you want has not been calculated at this period. Use different periods or different modes.')
-        end 
         
     end
 end
 
 clear Period
-
-
-%%%%%%%%%%%%%%%% Edit Parameters above here
 
 % Load info about source parameters here, from the input file
 EventInfo = load(Inputfilename);

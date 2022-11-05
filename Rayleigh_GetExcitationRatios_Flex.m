@@ -2,14 +2,15 @@
 %% for a specific period, and for a set of events
 Periods = Lookuptable(1,:);
 PhVel = Lookuptable(2,:);
-
+ncounter=0;
 % Loop over overtones
 for currN = [0:1:MaxN]
     %Get relevant subset of lookup table
     currdx = find(N == currN);
     Clist = PhVel(currdx);
     Tlist = Periods(currdx);
-    
+    ncounter=ncounter+1;
+
     periodcounter = 0;
 
     % Loop over periods
@@ -76,37 +77,41 @@ for currN = [0:1:MaxN]
             end
         
 
+
             
         end
     end  
     
     
-    
+                PeriodStruc(periodcounter).Periodlist(ncounter)=BestPeriod;
+
 end
 
 periodcounter=0;
 
 for period = Periodlist
-    Make_Filename
+    Make_Filename_Flex
     periodcounter=periodcounter+1;
         
     RawExcitation_Mat = PeriodStruc(periodcounter).RawExcitation_Mat;
-    
-    if MaxN > 0
-        for overtone_num = [1:1:MaxN]
-            ExcitationRatio_Mat(:,overtone_num) = RawExcitation_Mat(:,overtone_num+1)./RawExcitation_Mat(:,1);
-        end
-    end
+    RawExcitation_Mat_towrite(1,:) = PeriodStruc(periodcounter).Periodlist;
+    RawExcitation_Mat_towrite(2:length(RawExcitation_Mat(:,1))+1,:) = RawExcitation_Mat;
+
+%     if MaxN > 0
+%         for overtone_num = [1:1:MaxN]
+%             ExcitationRatio_Mat(:,overtone_num) = RawExcitation_Mat(:,overtone_num+1)./RawExcitation_Mat(:,1);
+%         end
+%     end
     
     % Output Raw Excitations as text file
-    dlmwrite(RawExcitationFname,PeriodStruc(periodcounter).RawExcitation_Mat,'delimiter','\t','precision','%.25f')
+    dlmwrite(RawExcitationFname,RawExcitation_Mat_towrite,'delimiter','\t','precision','%.25f')
 
-    if MaxN > 0
-        % Output Excitation Ratios as text file  
-        dlmwrite(ExcitationRatioFname,ExcitationRatio_Mat,'delimiter','\t','precision','%.25f')
-    end
+%     if MaxN > 0
+%         % Output Excitation Ratios as text file  
+%         dlmwrite(ExcitationRatioFname,ExcitationRatio_Mat,'delimiter','\t','precision','%.25f')
+%     end
     
-    clear ExcitationRatio_Mat
+   % clear ExcitationRatio_Mat
 end
 
 

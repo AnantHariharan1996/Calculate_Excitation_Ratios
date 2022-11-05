@@ -10,16 +10,17 @@ addpath(genpath(homedir))
 
 %%%%%Solicit user inputs%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Setup_Calculation_Parameters
+Setup_Calculation_Parameters_Flex
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+Preprocessing
 
 %%%%%Do Actual Calculations%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if RayleighOrLove == 1
-    Rayleigh_GetExcitationRatios
+    Rayleigh_GetExcitationRatios_Flex
 elseif RayleighOrLove == 0
-    Love_GetExcitationRatios
+    Love_GetExcitationRatios_Flex
 end
 
 %%%%%Visualize the Results%%%%%%%%%

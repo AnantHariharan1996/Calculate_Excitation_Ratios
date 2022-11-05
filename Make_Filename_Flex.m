@@ -15,7 +15,7 @@ end
 
 
 RawExcitationFname = [Wave '_' Arc '_Exct_T_' ...
-    num2str(BestPeriod) 's_output' Inputfilename(1:end-4)];
+    num2str(period) 's_output' Inputfilename(1:end-4)];
 ExcitationRatioFname = [Wave '_' Arc '_ExctRtio_T_'  ...
-    num2str(BestPeriod) 's_output' Inputfilename(1:end-4)];
+    num2str(period) 's_output' Inputfilename(1:end-4)];
 

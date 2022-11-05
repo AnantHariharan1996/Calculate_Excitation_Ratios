@@ -6,7 +6,7 @@ periodcounter=0;
 for Period = Periodlist
     periodcounter=periodcounter+1;
     ExcitationRatioFname = [Wave '_' Arc '_ExctRtio_T_'  ...
-    num2str(Period) 's_output' Inputfilename(1:end-4)];
+    num2str(BestPeriod) 's_output' Inputfilename(1:end-4)];
 
     Ratios = load(ExcitationRatioFname);
     
