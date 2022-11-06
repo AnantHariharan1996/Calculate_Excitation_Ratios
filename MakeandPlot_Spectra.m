@@ -1,126 +1,81 @@
 %% Calculate Excitation as a function of frequency
 %
-clear;
-clc;
-close all;
 
 
-%%% Set up Parameters here
-nlist = [0:1:2];
-MinorOrMajor = 0;
+%% Loop over every event
 
-RayleighOrLove = 0;
-
-Depthlist = 19.8; % in KM
-Mrrlist = 6.690000e+26;
-Mttlist = -5.350000e+26; Mpplist = -1.340000e+26;
-Mrtlist = 1.210000e+27; Mrplist = -5.520000e+26;
-Mtplist = 2.370000e+26; 
-
-Azimuthlist = 270; % in degrees. 
-% If the Azimuth is set to 9999, we just use the maximum of the
-% radiation pattern
+for evnum = 1:length(Mtplist)
 
 
+Periods = Lookuptable(1,:);
+PhVel = Lookuptable(2,:);
+N = Lookuptable(4,:);
+L = Lookuptable(5,:);
 
-for n = nlist
+
+for currN = 0:MaxN
     
-   if RayleighOrLove == 1
-        flist = dir(['Eigenfunction_Files/S_B' num2str(n) '_*s' ]);
-        fname=[ 'atl2a_Rayl_TUc_br' num2str(n) '.dms'];
-        tucinfo=load(fname);
-        Tlist=tucinfo(:,1);
-        Clist=tucinfo(:,3);   
-   elseif RayleighOrLove == 0
-        flist = dir(['Eigenfunction_Files/T_B' num2str(n) '_*s' ]);
-        fname=[ 'atl2a_Love_TUc_br' num2str(n) '.dms'];
-        tucinfo=load(fname);
-        Tlist=tucinfo(:,1);
-        Clist=tucinfo(:,3);
-   end
+    idx = find(N == currN);
+    PeriodsAtN = Periods(idx);
+    PhvelsAtN = PhVel(idx);
+
     
    periodlist = [];
    Excitationlist = [];
-   
-    for ijk = 1:length(flist)
+   pcounter=0;
+   for currperiod = PeriodsAtN
+       pcounter=   pcounter+1;
+       CurrC =  deg2rad(km2deg(PhvelsAtN(pcounter)));
+        full_dx_match = find(N == currN & Periods == currperiod);
+        tmpinfo = Eigmat(:,:,full_dx_match);
         
-        fname = flist(ijk).name;
-        periodstr = extractBetween(fname,['T_B' num2str(n) '_'],'s');
-        periodstr=periodstr{1};
-        period = str2num(periodstr)
-        periodlist(ijk) = period;
-        
-        % get phase velocity
-        Tdiff = abs(Tlist-period);
-        [mindiff,cdx]=min(Tdiff);
-        CurrC = Clist(cdx);
-        CurrC = deg2rad(km2deg(CurrC));
-            
-        if RayleighOrLove == 0
-        % Load eigenfunctions
-        Eigfname=['T_B' num2str(n) '_' num2str(period) 's'];
-        tmpinfo=load(Eigfname);
-        W=tmpinfo(:,2);
-        Wderiv=tmpinfo(:,3);
-        r=tmpinfo(:,1);    
-        
-        else
-            
-            
-        end
-        if n > 0 & MinorOrMajor
-            wvgrpdx=2;
-        else
-            wvgrpdx=1;
-        end
-        
-        % Now, get excitation for the chosen source combination
-        if RayleighOrLove == 0
+        if RayleighOrLove 
 
-        if Azimuthlist == 9999
-         [ B_SourceAmp,B_SourcePhase,B_Complex_Rad_Pattern,B_Term1,...
-                B_Term2 ] = ...
-                GetLoveSourceAmpandPhase([0:0.5:360],1000*Depthlist,period,...
-                r, W, Wderiv,Mrrlist,Mttlist,...
-                Mpplist,Mrtlist,Mrplist,...
-                Mtplist,CurrC,wvgrpdx); 
-            
-            
-         Excitationlist(ijk) = max(B_SourceAmp);
-         
-         
+            U=tmpinfo(:,2);
+            Uderiv=tmpinfo(:,3);
+            V=tmpinfo(:,4);
+            Vderiv=tmpinfo(:,5);
+            r=tmpinfo(:,1);  
+
+            [ B_SourceAmp,B_SourcePhase,B_Complex_Rad_Pattern,B_Term1,...
+            B_Term2,B_Term3 ] = ...
+            GetRayleighSourceAmpandPhase(Azimuthlist(evnum),1000*Depthlist(evnum),currperiod,...
+            r, U, Uderiv,V,Vderiv,Mrrlist(evnum),Mttlist(evnum),...
+            Mpplist(evnum),Mrtlist(evnum),Mrplist(evnum),...
+            Mtplist(evnum),CurrC,wvgrpdx );  
+
+
         else
-         [ B_SourceAmp,B_SourcePhase,B_Complex_Rad_Pattern,B_Term1,...
-                B_Term2 ] = ...
-                GetLoveSourceAmpandPhase(Azimuthlist,1000*Depthlist,period,...
-                r, W, Wderiv,Mrrlist,Mttlist,...
-                Mpplist,Mrtlist,Mrplist,...
-                Mtplist,CurrC,wvgrpdx); 
+
+            W=tmpinfo(:,2);
+            Wderiv=tmpinfo(:,3);
+            r=tmpinfo(:,1);    
+
+            [ B_SourceAmp,B_SourcePhase,B_Complex_Rad_Pattern,B_Term1,...
+            B_Term2 ] = ...
+            GetLoveSourceAmpandPhase(Azimuthlist(evnum),1000*Depthlist(evnum),currperiod,...
+            r, W, Wderiv,Mrrlist(evnum),Mttlist(evnum),...
+            Mpplist(evnum),Mrtlist(evnum),Mrplist(evnum),...
+            Mtplist(evnum),CurrC,wvgrpdx );  
             
-            
-         Excitationlist(ijk) = B_SourceAmp;
         end
-       
-            
-            
-        end
+
+        Excitationlist(pcounter) = B_SourceAmp;
         
     end
-    
-    [sortperiod,sortdx] = sort(periodlist);
+    % store excitation and periods
+    figure(evnum)
+    [sortperiod,sortdx] = sort(PeriodsAtN);
     excitationsortec=Excitationlist(sortdx);
-    semilogx(sortperiod,excitationsortec,'-o','linewidth',4)
+    semilogx(sortperiod,excitationsortec,'-o','linewidth',4)    
     hold on
-    
-    
-end
-counter=0;
-for n = nlist
-    counter=counter+1;
-    legendstr{counter} = [num2str(n) 'T'];
-end
-legend(legendstr)
 xlim([6 200])
 xlabel('Period (s)')
 ylabel('Raw Excitation')
 set(gca,'fontweight','bold','fontsize',20)
+%ylim([0 7e18])
+end
+
+
+
+end

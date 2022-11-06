@@ -38,7 +38,7 @@ for currN = [0:1:MaxN]
         Wderiv=tmpinfo(:,3);
         r=tmpinfo(:,1);    
         
-        if currN > 0 & MinorOrMajor
+        if MinorOrMajor
             wvgrpdx=2;
         else
             wvgrpdx=1;
@@ -49,20 +49,7 @@ for currN = [0:1:MaxN]
             disp(['Percent Complete for n = ' num2str(currN) ' : ' num2str(100*evnum/length(Depthlist)) '%'])
             
             
-            if Azimuthlist(evnum) == 9999
-
-                [ B_SourceAmp,B_SourcePhase,B_Complex_Rad_Pattern,B_Term1,...
-                B_Term2 ] = ...
-                GetLoveSourceAmpandPhase([0:0.5:360],1000*Depthlist(evnum),period,...
-                r, W, Wderiv,Mrrlist(evnum),Mttlist(evnum),...
-                Mpplist(evnum),Mrtlist(evnum),Mrplist(evnum),...
-                Mtplist(evnum),CurrC,wvgrpdx );  
-            
-                tmpmax = max(B_SourceAmp); maxB_SourceAmp = tmpmax(1);
-
-                PeriodStruc(periodcounter).RawExcitation_Mat(evnum,currN+1) = maxB_SourceAmp;                
-                
-            else
+   
                             
                 [ B_SourceAmp,B_SourcePhase,B_Complex_Rad_Pattern,B_Term1,...
                 B_Term2 ] = ...
@@ -72,8 +59,9 @@ for currN = [0:1:MaxN]
                 Mtplist(evnum),CurrC,wvgrpdx );  
 
                 PeriodStruc(periodcounter).RawExcitation_Mat(evnum,currN+1) = B_SourceAmp;
-                
-            end
+                 PeriodStruc(periodcounter).RawPhase_Mat(evnum,currN+1) = B_SourcePhase;
+       
+            
         end
     end  
     
@@ -92,19 +80,19 @@ for period = Periodlist
     RawExcitation_Mat_towrite(1,:) = PeriodStruc(periodcounter).Periodlist;
     RawExcitation_Mat_towrite(2:length(RawExcitation_Mat(:,1))+1,:) = RawExcitation_Mat;
 
+    RawPhase_Mat = PeriodStruc(periodcounter).RawPhase_Mat;
+    RawPhase_Mat_towrite(1,:) = PeriodStruc(periodcounter).Periodlist;
+    RawPhase_Mat_towrite(2:length(RawPhase_Mat(:,1))+1,:) = RawPhase_Mat;
 
-%     for overtone_num = [1:1:MaxN]
-%         ExcitationRatio_Mat(:,overtone_num) = RawExcitation_Mat(:,overtone_num+1)./RawExcitation_Mat(:,1);
-%     end
-    
+
+    if ExcitationOrPhase==1
+           % Output Raw phase as text file
+    dlmwrite(RawPhaseFname,RawPhase_Mat_towrite,'delimiter','\t','precision','%.25f')
+    elseif ExcitationOrPhase==0
+
     % Output Raw Excitations as text file
     dlmwrite(RawExcitationFname,RawExcitation_Mat_towrite,'delimiter','\t','precision','%.25f')
-    
-%     if MaxN > 0
-%     % Output Excitation Ratios as text file  
-%     dlmwrite(ExcitationRatioFname,ExcitationRatio_Mat,'delimiter','\t','precision','%.25f')
-%     end
-%         clear ExcitationRatio_Mat
+    end
 
     
 end

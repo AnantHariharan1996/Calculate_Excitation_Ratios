@@ -17,12 +17,15 @@ Preprocessing
 
 %%%%%Do Actual Calculations%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+if Output_As_Spectra
+MakeandPlot_Spectra
+else
 if RayleighOrLove == 1
     Rayleigh_GetExcitationRatios_Flex
 elseif RayleighOrLove == 0
     Love_GetExcitationRatios_Flex
 end
-
+end
 %%%%%Visualize the Results%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if VisualizeMyResults

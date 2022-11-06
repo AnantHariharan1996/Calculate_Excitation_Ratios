@@ -42,6 +42,11 @@ Mrtlist = EventInfo(:,5); Mrplist = EventInfo(:,6);
 Mtplist = EventInfo(:,7); 
 
 Azimuthlist = EventInfo(:,8); % in degrees. 
-% If the Azimuth is set to 9999, we just use the maximum of the
-% radiation pattern
 
+
+
+if MinorOrMajor
+wvgrpdx=2;
+else
+wvgrpdx=1;
+end

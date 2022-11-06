@@ -11,11 +11,16 @@ MinorOrMajor = 0;
 
 RayleighOrLove = 0;
 
-Depthlist = 19.8; % in KM
+Depthlist = 50; % in KM
 Mrrlist = 6.690000e+26;
 Mttlist = -5.350000e+26; Mpplist = -1.340000e+26;
 Mrtlist = 1.210000e+27; Mrplist = -5.520000e+26;
 Mtplist = 2.370000e+26; 
+
+Mrrlist = 0;
+Mttlist = 0; Mpplist = 1
+Mrtlist = 0; Mrplist = 0;
+Mtplist = 1; 
 
 Azimuthlist = 270; % in degrees. 
 % If the Azimuth is set to 9999, we just use the maximum of the

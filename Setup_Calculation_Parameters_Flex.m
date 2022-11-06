@@ -6,7 +6,7 @@ clear; close all; clc;
 addpath(genpath(pwd))
 % Are we interested in Rayleigh or Love wave overtone interference?
 % Set the variable to 1 for Rayleigh, 0 for Love
-RayleighOrLove = 0;
+RayleighOrLove = 1;
 
 % Enter the list of periods you want to use here
 % This vector can even be just a 1x1 scalar or a vector
@@ -14,14 +14,14 @@ RayleighOrLove = 0;
 Periodlist = [125];
 
 % How many overtones should we be considering in the calculation?
-MaxN = 1;
+MaxN = 2;
 
 % Are we interested in minor or major-arc overtone interference?
 % Set the variable to 1 for major, 0 for minor
 MinorOrMajor = 0;
 
 %Enter the input file name here in quotes (' '). It must be on your path.
-Inputfilename = 'StrikeSlip_Fault.txt';
+Inputfilename = 'DipSlip_Fault.txt';
 
 % Visualize the Results? This is only really useful when thinking about excitation ratios.
 VisualizeMyResults = 0;
@@ -33,3 +33,6 @@ Velmod = 'atl2a';
 % Output excitation at all frequencies on an earthquake-by-earthquake
 % basis?
 Output_As_Spectra = 0;
+
+% Output source phase or source excitation? 0 for Excitation, 1 for phase. 
+ExcitationOrPhase = 0;
