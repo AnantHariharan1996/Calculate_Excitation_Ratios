@@ -7,9 +7,11 @@ addpath(genpath(pwd))
 %% Setup parameters to isolate which eigenfunctions do you want to check
 Periodlist = [50 75 100 ]; RayleighOrLove= 1;
 % Which velocity model do you want to use? Choices: ATL2a, PREM...
-Velmod = 'prem';
+Velmod = 'TAYAK';
 % Which overtones to consider in this calculation
-Nstocheck = [0:5];
+Nstocheck = [0:1];
+
+%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% only edit code above this line
 Fail_List_N = [];
 Fail_List_Period = [];
@@ -19,7 +21,12 @@ modename = 'spheroidal';
 else
 modename = 'toroidal';
 end
-Load_Density
+%Load_Density
+[radius,rho,vsv,vsh,vpv,vph,qmu,qkappa,eta] = load_model(Velmod);
+
+[unique_rads,uniquedx] = unique(radius);
+radius=radius(uniquedx);
+density=rho(uniquedx);
 
 Eigmatname = [Velmod '_' modename '_eigfxns_array.mat'];
 Eiglookupname = [Velmod '_' modename '_TCUNL_Lookup.mat'];
@@ -41,13 +48,10 @@ for currN = Nstocheck
     %
     %Get relevant subset of lookup table
     currdx = find(N == currN);
-    Clist = PhVel(currdx);
     Tlist = Periods(currdx);
     for period = Periodlist
         Tdiff = abs(Tlist-period);
         [mindiff,cdx]=min(Tdiff);
-        CurrC = Clist(cdx);
-        CurrC = deg2rad(km2deg(CurrC));
         BestPeriod = Tlist(cdx);
         
         full_dx_match = find(N == currN & Periods == BestPeriod);
@@ -68,11 +72,11 @@ for currN = Nstocheck
         omega = 2*pi/BestPeriod;
         
         % interpolate density onto eigenfunction coords
-        Density_Interped = interp1(PREM_REF_Radius_meters,PREM_REF_Density,r);
+        Density_Interped = interp1(radius,density,r);
         if RayleighOrLove == 1
             % perform integral for Spheroidal or Toroidal eigenfunctions. 
             val = trapz(r , Density_Interped.*(U.^2+V.^2).*r.^2 ) * omega^2;
-            elseif RayleighOrLove == 0
+        elseif RayleighOrLove == 0
             val = trapz(r , Density_Interped.*(W.^2).*r.^2 ) * omega^2;
         end      
         
