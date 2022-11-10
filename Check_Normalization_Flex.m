@@ -7,7 +7,7 @@ addpath(genpath(pwd))
 %% Setup parameters to isolate which eigenfunctions do you want to check
 Periodlist = [50 75 100 ]; RayleighOrLove= 1;
 % Which velocity model do you want to use? Choices: ATL2a, PREM...
-Velmod = 'prem_35';
+Velmod = 'prem';
 % Which overtones to consider in this calculation
 Nstocheck = [0:5];
 %%%%%%%%%%%%%%%% only edit code above this line
@@ -20,6 +20,7 @@ else
 modename = 'toroidal';
 end
 Load_Density
+
 Eigmatname = [Velmod '_' modename '_eigfxns_array.mat'];
 Eiglookupname = [Velmod '_' modename '_TCUNL_Lookup.mat'];
 
@@ -87,7 +88,7 @@ if length(Fail_List_N) > 0
 disp(' ')
 disp('Some eigenfunctions do not meet normalization requirement.')
 for ijk = 1:length(Fail_List_N)
-    disp(['N = ' num2str(Fail_List_N(ijk)) ',T = ' num2str(Fail_List_Period(ijk))])
+    disp(['N = ' num2str(Fail_List_N(ijk)) ',T = ' num2str(Fail_List_Period(ijk)) ' Failed.'])
 
 end
 else

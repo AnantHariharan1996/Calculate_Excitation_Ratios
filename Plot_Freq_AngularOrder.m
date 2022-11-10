@@ -8,7 +8,7 @@ RayleighOrLove = 1;
 
 % Which velocity model do you want to use?
 % choices are ATL2a, PREM...
-Velmod = 'prem_35';
+Velmod = 'atl2a';
 
 %%%%%%% Do not edit anything below this line %%%%%%%%
 if RayleighOrLove
@@ -24,13 +24,17 @@ load(Eigmatname);
 load(Eiglookupname)
 Periods = Lookuptable(1,:); 
 PhVel = Lookuptable(2,:);
+U = Lookuptable(3,:);
 N = Lookuptable(4,:); 
 L = Lookuptable(5,:);
 uniqueNs = unique(N); 
 cmappp = jet(length(uniqueNs));
 % do plotting below here
 ncounter=0;
+
 for currN = uniqueNs
+    figure(1)
+
     ncounter=ncounter+1;    
     currdx= find(N == currN);      
     plot(L(currdx),1000./Periods(currdx),'-o','linewidth',2,'color',cmappp(ncounter,:))
@@ -43,7 +47,37 @@ for currN = uniqueNs
     ylabel(barbar,'radial order n')
     
     set(gcf,'position',[193 131 913 735])
-    titlestr = [modename ' Dispersion Plot for ' replace(Velmod,'_','\_')];
+    titlestr = [modename ' Freq-Angular Order Plot for ' replace(Velmod,'_','\_')];
     title(titlestr)
     set(gca,'fontsize',20,'fontweight','bold')
+
+
+ 
+
 end
+
+ncounter=0;
+
+for currN = uniqueNs
+
+    ncounter=ncounter+1;    
+    currdx= find(N == currN);      
+    
+   figure(2)
+    plot(Periods(currdx),PhVel(currdx),'-o','linewidth',2,'color',cmappp(ncounter,:))
+hold on
+xlim([20 250])
+ylim([3 10])
+    colormap(cmappp)
+
+    barbar=colorbar; caxis([min(uniqueNs) max(uniqueNs)]);
+    ylabel(barbar,'radial order n')
+    xlabel('Period (s)')
+    ylabel('Phase Velocity (km/s)')
+        set(gca,'fontsize',20,'fontweight','bold')
+            set(gcf,'position',[193 131 913 735])
+    titlestr = ['Phase Velocities for ' replace(Velmod,'_','\_')];
+
+
+end
+
