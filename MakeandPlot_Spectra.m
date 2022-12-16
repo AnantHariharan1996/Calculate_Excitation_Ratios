@@ -11,7 +11,7 @@ Periods = Lookuptable(1,:);
 PhVel = Lookuptable(2,:);
 N = Lookuptable(4,:);
 L = Lookuptable(5,:);
-
+clear AllStore
 
 for currN = 0:MaxN
     
@@ -74,8 +74,9 @@ xlabel('Period (s)')
 ylabel('Raw Excitation')
 set(gca,'fontweight','bold','fontsize',20)
 %ylim([0 7e18])
+%AllStore(evnum).periods()
 end
 
-
+% output information for this event
 
 end

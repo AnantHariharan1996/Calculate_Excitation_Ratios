@@ -22,6 +22,8 @@ for currN = [0:1:MaxN]
         [mindiff,cdx]=min(Tdiff);
         CurrC = Clist(cdx);
         CurrC = deg2rad(km2deg(CurrC));
+        [CurrC_AltVersion] = km2rad_anysphere(Clist(cdx),Body_Radius2use);
+        CurrC=CurrC_AltVersion;
         BestPeriod = Tlist(cdx);
 
 

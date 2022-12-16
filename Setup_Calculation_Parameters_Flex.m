@@ -14,7 +14,7 @@ RayleighOrLove = 1;
 Periodlist = [125];
 
 % How many overtones should we be considering in the calculation?
-MaxN = 2;
+MaxN = 0;
 
 % Are we interested in minor or major-arc overtone interference?
 % Set the variable to 1 for major, 0 for minor
@@ -32,7 +32,7 @@ Velmod = 'atl2a';
 
 % Output excitation at all frequencies on an earthquake-by-earthquake
 % basis?
-Output_As_Spectra = 0;
+Output_As_Spectra = 1;
 
 % Output source phase or source excitation? 0 for Excitation, 1 for phase. 
 ExcitationOrPhase = 0;

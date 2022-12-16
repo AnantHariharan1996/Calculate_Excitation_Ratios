@@ -1,4 +1,4 @@
-%% Visualize Eigenfunctions
+%% Plot Dispersion Diagrams
 clear; clc; close all;
 % Plot frequency vs angular order
 
@@ -8,7 +8,7 @@ RayleighOrLove = 1;
 
 % Which velocity model do you want to use?
 % choices are ATL2a, PREM...
-Velmod = 'atl2a';
+Velmod = 'TAYAK';
 
 %%%%%%% Do not edit anything below this line %%%%%%%%
 if RayleighOrLove

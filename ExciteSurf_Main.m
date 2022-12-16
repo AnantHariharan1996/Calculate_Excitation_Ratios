@@ -3,7 +3,7 @@
 %% how to format the input file containing input information
 
 % Anant Hariharan, 2021
-
+ 
 clear; close all; clc;
 homedir = pwd; 
 addpath(genpath(homedir))

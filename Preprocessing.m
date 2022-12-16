@@ -50,3 +50,7 @@ wvgrpdx=2;
 else
 wvgrpdx=1;
 end
+
+
+[radius,rho,vsv,vsh,vpv,vph,qmu,qkappa,eta] = load_model(Velmod);
+Body_Radius2use = max(radius)./1000;
