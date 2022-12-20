@@ -1,8 +1,6 @@
 %% Calculate Excitation as a function of frequency
-%
-
-
-%% Loop over every event
+% Loop over every event
+clear AllStore
 
 for evnum = 1:length(Mtplist)
 
@@ -11,14 +9,15 @@ Periods = Lookuptable(1,:);
 PhVel = Lookuptable(2,:);
 N = Lookuptable(4,:);
 L = Lookuptable(5,:);
-clear AllStore
-
+maxperiods=0;
 for currN = 0:MaxN
     
     idx = find(N == currN);
     PeriodsAtN = Periods(idx);
     PhvelsAtN = PhVel(idx);
-
+    if length(PeriodsAtN) > maxperiods
+        maxperiods = length(PeriodsAtN);
+    end
     
    periodlist = [];
    Excitationlist = [];
@@ -64,19 +63,37 @@ for currN = 0:MaxN
         
     end
     % store excitation and periods
-    figure(evnum)
-    [sortperiod,sortdx] = sort(PeriodsAtN);
+%    figure(evnum)
+   [sortperiod,sortdx] = sort(PeriodsAtN);
     excitationsortec=Excitationlist(sortdx);
-    semilogx(sortperiod,excitationsortec,'-o','linewidth',4)    
-    hold on
-xlim([6 200])
-xlabel('Period (s)')
-ylabel('Raw Excitation')
-set(gca,'fontweight','bold','fontsize',20)
+%    semilogx(sortperiod,excitationsortec,'-o','linewidth',4)    
+%    hold on
+%xlim([6 200])
+%xlabel('Period (s)')
+%ylabel('Raw Excitation')
+%set(gca,'fontweight','bold','fontsize',20)
 %ylim([0 7e18])
-%AllStore(evnum).periods()
+AllStore(evnum).NStore(currN+1).period = sortperiod;
+AllStore(evnum).NStore(currN+1).excitation = excitationsortec;
+AllStore(evnum).NStore(currN+1).nval = currN;
+
+
 end
 
-% output information for this event
+% output information for this event. Store in a giant matrix with NaNs. 
+OutMat = NaN.*zeros(MaxN*2,maxperiods+1);
+
+for N_Num = 1:MaxN+1
+thecurrperiods = AllStore(evnum).NStore(N_Num).period;
+thecurrexcitation = AllStore(evnum).NStore(N_Num).excitation;
+
+OutMat(N_Num*2-1,1:length(thecurrperiods)+1) = [N_Num thecurrperiods];
+OutMat(N_Num*2,1:length(thecurrperiods)+1) = [N_Num thecurrexcitation];
+
+
+end
+OutMat = OutMat';
+% Write out matrix containing spectra at all periods and modes;
+ dlmwrite(['Event_' num2str(evnum) modename 'AmpSpectra.txt'],OutMat,'delimiter','\t','precision','%.25f')
 
 end

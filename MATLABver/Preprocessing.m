@@ -25,7 +25,11 @@ for ijk = 1:length(Periodlist)
         currdx = find(N == n);
         tmpperiodlist = Periods(currdx);
         if min(Periods) > Period || max(Periods) < Period
-           error(['ERROR: eigenfunctions do not span the period of interest for n=' num2str(n) '. Use periods to be between ' num2str(max(tmpperiodlist)) ' and ' num2str(min(tmpperiodlist)) 's'])        
+           disp(['ERROR: eigenfunctions do not span the period of interest for n=' num2str(n) '. Use periods to be between ' num2str(max(tmpperiodlist)) ' and ' num2str(min(tmpperiodlist)) 's'])   
+            %% RESET PERIOD RANGE TO BE ACCEPTABLE FOR THIS EIG FXN
+
+
+            
         end
         
     end

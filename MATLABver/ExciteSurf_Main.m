@@ -18,7 +18,7 @@ Preprocessing
 %%%%%Do Actual Calculations%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if Output_As_Spectra
-MakeandPlot_Spectra
+Calculate_Spectra
 else
 if RayleighOrLove == 1
     Rayleigh_GetExcitationRatios_Flex
