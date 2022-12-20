@@ -23,8 +23,11 @@ source_rad = Radius_List_m(mindx)/RE_m;
 %source_rad = Radius_List_m(mindx);
 
 % Get the value of the derivatives of W, and W itself, here
-Wdot = WderivLIST(mindx);
-W = WLIST(mindx);
+%Wdot = WderivLIST(mindx);
+%W = WLIST(mindx);
+Wdot = interp1(Radius_List_m,WderivLIST,source_rad);
+W = interp1(Radius_List_m,WLIST,source_rad);
+
 
 % Dahlen and Tromp Version
 Term1 = -1.*(1./source_rad).*k.*W.*(-1*Mtp.*cosd(2.*AZI) +...

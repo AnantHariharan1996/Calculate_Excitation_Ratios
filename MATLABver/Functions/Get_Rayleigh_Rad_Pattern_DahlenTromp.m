@@ -22,10 +22,16 @@ source_rad = Radius_List_m(mindx)/RE_m;
 %source_rad = Radius_List_m(mindx);
 
 % Get the value of the derivatives of U and V AND U AND V here
-Udot = UderivLIST(mindx);
-Vdot = VderivLIST(mindx);
-U = ULIST(mindx);
-V = VLIST(mindx);
+% Udot = UderivLIST(mindx);
+% Vdot = VderivLIST(mindx);
+% U = ULIST(mindx);
+% V = VLIST(mindx);
+
+% Interpolate to get the value of the derivatives of U and V AND U AND V here
+Udot = interp1(Radius_List_m,UderivLIST,source_rad);
+Vdot = interp1(Radius_List_m,VderivLIST,source_rad);
+U = interp1(Radius_List_m,ULIST,source_rad);
+V = interp1(Radius_List_m,VLIST,source_rad);
 
 s = wavegroup_index;
 
