@@ -39,6 +39,13 @@ for currN = [0:1:MaxN]
         W=tmpinfo(:,2);
         Wderiv=tmpinfo(:,3);
         r=tmpinfo(:,1);    
+                % pre-processing loop to aid with interpolation
+         r=tmpinfo(:,1);    
+        for abcdef = 1:length(r)-1
+        if r(abcdef+1) == r(abcdef)
+            r(abcdef) = r(abcdef)+0.001;
+        end
+        end
         
         if MinorOrMajor
             wvgrpdx=2;

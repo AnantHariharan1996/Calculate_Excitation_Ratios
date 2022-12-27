@@ -21,18 +21,18 @@ MaxN = 5;
 MinorOrMajor = 0;
 
 %Enter the input file name here in quotes (' '). It must be on your path.
-Inputfilename = 'DipSlip_Fault.txt';
+Inputfilename = 'Explosion.txt';
 
 % Visualize the Results? This is only really useful when thinking about excitation ratios.
 VisualizeMyResults = 0;
 
 % Which velocity model do you want to use?
 % choices are ATL2a, PREM...
-Velmod = 'atl2a';
+Velmod = 'STW105C';
 
 % Output excitation at all frequencies on an earthquake-by-earthquake
 % basis?
-Output_As_Spectra = 0;
+Output_As_Spectra = 1;
 
 % Output source phase or source excitation? 0 for Excitation, 1 for phase. 
 ExcitationOrPhase = 0;

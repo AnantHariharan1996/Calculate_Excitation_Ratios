@@ -8,7 +8,7 @@ RayleighOrLove = 1;
 
 % Which velocity model do you want to use?
 % choices are ATL2a, PREM...
-Velmod = 'TAYAK';
+Velmod = 'STW105C';
 
 %%%%%%% Do not edit anything below this line %%%%%%%%
 if RayleighOrLove

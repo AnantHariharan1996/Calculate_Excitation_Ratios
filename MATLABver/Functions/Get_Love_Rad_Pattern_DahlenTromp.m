@@ -16,11 +16,7 @@ s=wavegroup_index;
 
 % Get index corresponding to your source depth of interest
 source_rad = RE_m-Source_Depth_m;
-difference_list = abs(source_rad-Radius_List_m);
-[meaninglessval,mindx] = min(difference_list);
-% normalize
-source_rad = Radius_List_m(mindx)/RE_m;
-%source_rad = Radius_List_m(mindx);
+
 
 % Get the value of the derivatives of W, and W itself, here
 %Wdot = WderivLIST(mindx);
@@ -28,6 +24,8 @@ source_rad = Radius_List_m(mindx)/RE_m;
 Wdot = interp1(Radius_List_m,WderivLIST,source_rad);
 W = interp1(Radius_List_m,WLIST,source_rad);
 
+% normalize
+source_rad = source_rad/RE_m;
 
 % Dahlen and Tromp Version
 Term1 = -1.*(1./source_rad).*k.*W.*(-1*Mtp.*cosd(2.*AZI) +...

@@ -13,25 +13,16 @@ omega = 2*pi/period;
 k = omega/Phvel;
 AZI=Map_ClockwizeAzi2CounterClockwisefromSAzi( AZI );
 
-% Get index corresponding to your source depth of interest
+% map to radius
 source_rad = RE_m-Source_Depth_m;
-difference_list = abs(source_rad-Radius_List_m);
-[meaninglessval,mindx] = min(difference_list);
-% normalize
-source_rad = Radius_List_m(mindx)/RE_m;
-%source_rad = Radius_List_m(mindx);
-
-% Get the value of the derivatives of U and V AND U AND V here
-% Udot = UderivLIST(mindx);
-% Vdot = VderivLIST(mindx);
-% U = ULIST(mindx);
-% V = VLIST(mindx);
 
 % Interpolate to get the value of the derivatives of U and V AND U AND V here
 Udot = interp1(Radius_List_m,UderivLIST,source_rad);
 Vdot = interp1(Radius_List_m,VderivLIST,source_rad);
 U = interp1(Radius_List_m,ULIST,source_rad);
 V = interp1(Radius_List_m,VLIST,source_rad);
+% normalize
+source_rad = source_rad/RE_m;
 
 s = wavegroup_index;
 

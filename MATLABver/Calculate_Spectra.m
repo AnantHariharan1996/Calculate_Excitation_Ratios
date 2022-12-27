@@ -27,15 +27,20 @@ for currN = 0:MaxN
        CurrC =  deg2rad(km2deg(PhvelsAtN(pcounter)));
         full_dx_match = find(N == currN & Periods == currperiod);
         tmpinfo = Eigmat(:,:,full_dx_match);
+        % pre-processing loop to aid with interpolation
+         r=tmpinfo(:,1);    
+        for abcdef = 1:length(r)-1
+        if r(abcdef+1) == r(abcdef)
+            r(abcdef) = r(abcdef)+0.001;
+        end
+        end
         
         if RayleighOrLove 
-
+           
             U=tmpinfo(:,2);
             Uderiv=tmpinfo(:,3);
             V=tmpinfo(:,4);
             Vderiv=tmpinfo(:,5);
-            r=tmpinfo(:,1);  
-
             [ B_SourceAmp,B_SourcePhase,B_Complex_Rad_Pattern,B_Term1,...
             B_Term2,B_Term3 ] = ...
             GetRayleighSourceAmpandPhase(Azimuthlist(evnum),1000*Depthlist(evnum),currperiod,...
@@ -48,8 +53,6 @@ for currN = 0:MaxN
 
             W=tmpinfo(:,2);
             Wderiv=tmpinfo(:,3);
-            r=tmpinfo(:,1);    
-
             [ B_SourceAmp,B_SourcePhase,B_Complex_Rad_Pattern,B_Term1,...
             B_Term2 ] = ...
             GetLoveSourceAmpandPhase(Azimuthlist(evnum),1000*Depthlist(evnum),currperiod,...

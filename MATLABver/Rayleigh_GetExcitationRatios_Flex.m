@@ -40,7 +40,14 @@ for currN = [0:1:MaxN]
         V=tmpinfo(:,4);
         Vderiv=tmpinfo(:,5);
         r=tmpinfo(:,1);    
-        
+           % pre-processing loop to aid with interpolation
+         r=tmpinfo(:,1);    
+        for abcdef = 1:length(r)-1
+        if r(abcdef+1) == r(abcdef)
+            r(abcdef) = r(abcdef)+0.001;
+        end
+        end
+
         if  MinorOrMajor
             wvgrpdx=2;
         else
