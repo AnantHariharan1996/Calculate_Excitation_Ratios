@@ -90,8 +90,8 @@ for N_Num = 1:MaxN+1
 thecurrperiods = AllStore(evnum).NStore(N_Num).period;
 thecurrexcitation = AllStore(evnum).NStore(N_Num).excitation;
 
-OutMat(N_Num*2-1,1:length(thecurrperiods)+1) = [N_Num thecurrperiods];
-OutMat(N_Num*2,1:length(thecurrperiods)+1) = [N_Num thecurrexcitation];
+OutMat(N_Num*2-1,1:length(thecurrperiods)+1) = [N_Num-1 thecurrperiods];
+OutMat(N_Num*2,1:length(thecurrperiods)+1) = [N_Num-1 thecurrexcitation];
 
 
 end

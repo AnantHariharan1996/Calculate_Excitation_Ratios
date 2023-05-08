@@ -14,17 +14,17 @@ RayleighOrLove = 1;
 Periodlist = [125];
 
 % How many overtones should we be considering in the calculation?
-MaxN = 5;
+MaxN = 1;
 
 % Are we interested in minor or major-arc overtone interference?
 % Set the variable to 1 for major, 0 for minor
 MinorOrMajor = 0;
 
 %Enter the input file name here in quotes (' '). It must be on your path.
-Inputfilename = 'Explosion.txt';
+Inputfilename = 'DipSlip_Fault.txt';
 
 % Visualize the Results? This is only really useful when thinking about excitation ratios.
-VisualizeMyResults = 0;
+VisualizeMyResults = 1;
 
 % Which velocity model do you want to use?
 % choices are ATL2a, PREM...

@@ -2,7 +2,7 @@
 %% See the README file for instructions on 
 %% how to format the input file containing input information
 
-% Anant Hariharan, 2021
+% Anant Hariharan, 2022
  
 clear; close all; clc;
 homedir = pwd; 
@@ -29,5 +29,9 @@ end
 %%%%%Visualize the Results%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if VisualizeMyResults
+if Output_As_Spectra
+Visualize_Spectra
+else
 Visualize_Results
+end
 end
