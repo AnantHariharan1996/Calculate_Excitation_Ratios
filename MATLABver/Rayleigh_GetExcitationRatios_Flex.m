@@ -77,10 +77,11 @@ for currN = [0:1:MaxN]
 
             
         end
+                        PeriodStruc(periodcounter).Periodlist(ncounter)=BestPeriod;
+
     end  
     
     
-                PeriodStruc(periodcounter).Periodlist(ncounter)=BestPeriod;
 
 end
 

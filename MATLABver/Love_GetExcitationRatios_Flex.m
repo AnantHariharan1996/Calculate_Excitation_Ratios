@@ -72,9 +72,10 @@ for currN = [0:1:MaxN]
        
             
         end
+                            PeriodStruc(periodcounter).Periodlist(ncounter)=BestPeriod;
+
     end  
     
-                    PeriodStruc(periodcounter).Periodlist(ncounter)=BestPeriod;
 
     
 end
@@ -95,10 +96,9 @@ for period = Periodlist
 
 
     if ExcitationOrPhase==1
-           % Output Raw phase as text file
+    % Output Raw phase as text file
     dlmwrite(RawPhaseFname,RawPhase_Mat_towrite,'delimiter','\t','precision','%.25f')
     elseif ExcitationOrPhase==0
-
     % Output Raw Excitations as text file
     dlmwrite(RawExcitationFname,RawExcitation_Mat_towrite,'delimiter','\t','precision','%.25f')
     end
