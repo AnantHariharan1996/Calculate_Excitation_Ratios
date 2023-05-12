@@ -19,15 +19,18 @@ L = Lookuptable(5,:);
 
 
 % Check that this works at all periods and overtones
+errcount=0;
 for ijk = 1:length(Periodlist)
     Period=Periodlist(ijk);
     for n = 0:MaxN
         currdx = find(N == n);
         tmpperiodlist = Periods(currdx);
         if min(Periods) > Period || max(Periods) < Period
-           disp(['ERROR: eigenfunctions do not span the period of interest for n=' num2str(n) '. Use periods to be between ' num2str(max(tmpperiodlist)) ' and ' num2str(min(tmpperiodlist)) 's'])   
-            %% RESET PERIOD RANGE TO BE ACCEPTABLE FOR THIS EIG FXN
-
+           disp(['ERROR: eigenfunctions do not span the period of interest, ' num2str(Period) 's, for n=' num2str(n) '.']) 
+           disp(['To avoid potential errors, use periods to be between ' num2str(max(tmpperiodlist)) ' and ' num2str(min(tmpperiodlist)) 's'])  
+           errcount=errcount+1;
+           ErrorList_N(errcount) = n;
+           ErrorList_T(errcount) = Period;
 
             
         end

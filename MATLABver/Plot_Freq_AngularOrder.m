@@ -4,7 +4,7 @@ clear; clc; close all;
 
 % Are we interested in Rayleigh or Love waves (spheroidal or toroidal)?
 % Set the variable to 1 for Rayleigh, 0 for Love
-RayleighOrLove = 1;
+RayleighOrLove = 0;
 
 % Which velocity model do you want to use?
 % choices are ATL2a, PREM...

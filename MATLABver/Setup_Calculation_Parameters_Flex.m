@@ -15,10 +15,10 @@ RayleighOrLove = 0;
 % Enter the list of periods you want to use here
 % This vector can even be just a 1x1 scalar or a vector
 % e.g. Periodlist = [50 75 100 125];
-Periodlist = [50:10:175];
+Periodlist = [10:10:50];
 
 % How many overtones should we be considering in the calculation?
-MaxN = 1;
+MaxN = 0;
 
 % Are we interested in minor or major-arc overtone interference?
 % Set the variable to 1 for major, 0 for minor

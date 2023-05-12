@@ -39,7 +39,20 @@ for period = Periodlist
 
     clear Mat_Phase
     clear Mat_Excite
+   
 end
+
+% Set information corresponding to 
+% modes that are out of the search domain to zero.
+for jklm = 1:length(ErrorList_N)
+    currN = ErrorList_N(jklm);
+    currT = ErrorList_T(jklm);
+    idx = find(MegaMat_Excite(1,:) == currN & MegaMat_Excite(2,:) == currT);
+    MegaMat_Excite(3:end,idx) = NaN;
+    MegaMat_Phase(3:end,idx) = NaN;
+    
+end
+
 
 if ExcitationOrPhase==1
 % Output Raw phase as text file
