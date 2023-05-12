@@ -84,4 +84,37 @@ for currN = [0:1:MaxN]
     
 
 end
-WriteOutput
+
+periodcounter=0;
+
+for period = Periodlist
+    Make_Filename_Flex
+    periodcounter=periodcounter+1;
+        
+    RawExcitation_Mat = PeriodStruc(periodcounter).RawExcitation_Mat;
+    RawExcitation_Mat_towrite(1,:) = PeriodStruc(periodcounter).Periodlist;
+    RawExcitation_Mat_towrite(2:length(RawExcitation_Mat(:,1))+1,:) = RawExcitation_Mat;
+
+    RawPhase_Mat = PeriodStruc(periodcounter).RawPhase_Mat;
+    RawPhase_Mat_towrite(1,:) = PeriodStruc(periodcounter).Periodlist;
+    RawPhase_Mat_towrite(2:length(RawPhase_Mat(:,1))+1,:) = RawPhase_Mat;
+
+
+    if ExcitationOrPhase==1
+           % Output Raw phase as text file
+    dlmwrite(RawPhaseFname,RawPhase_Mat_towrite,'delimiter','\t','precision','%.25f')
+    elseif ExcitationOrPhase==0
+
+    % Output Raw Excitations as text file
+    dlmwrite(RawExcitationFname,RawExcitation_Mat_towrite,'delimiter','\t','precision','%.25f')
+    end
+
+    % row 1 is n
+    % row 2 is input period
+    % row 3 is actual period
+    % row 4 onwards is excitation. 
+    
+end
+
+
+

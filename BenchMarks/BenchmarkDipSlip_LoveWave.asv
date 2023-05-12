@@ -15,20 +15,19 @@ Exct = info(4:end,:);
 % interested in the excitation ratio between n1/n0
 for ijk = 1:length(periodlist)
 
-n1dx = find(t == periodlist(ijk) & n == 1);
-n0dx = find(t == periodlist(ijk) & n == 0);
-rats = Exct(:,n1dx)./Exct(:,n0dx);
-scatter(periodlist(ijk)*ones(size(Deps)),Deps,250,log(rats),'filled','s'  )
-hold on
-caxis([-2.5 0])
-colormap(viridis)
+
 
 
 end
 
-set(gca,'fontsize',16,'ydir','reverse')
 
-
+% exct = info([2:end],:);
+% rats = exct(:,2)./exct(:,1);
+% scatter(period*ones(size(Deps)),Deps,250,log(rats),'filled','s'  )
+% hold on
+% caxis([-2.5 0])
+% colormap(viridis)
+% set(gca,'fontsize',16,'ydir','reverse')
 
     
     
