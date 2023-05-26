@@ -4,8 +4,6 @@ README:
 This folder contains scripts that are designed to help calculate azimuth-dependent surface wave excitation for different modes, periods, for sources with any depth and moment tensor, and for a range of Earth/Planetary models. 
 The main script that you run is Calc_Excitation_Ratios_Main. 
 
-First, you must untar your folder of 
-
 The only script you should need to -EDIT- is Setup_Calculation_Parameters.m.
 
 In Setup_Calculation_Parameters.m, you must tell the code 
@@ -13,8 +11,9 @@ In Setup_Calculation_Parameters.m, you must tell the code
 (2) Which periods you are interested in, (enter a vector of periods, e.g. [50 100])
 (3) Which kind of excitation you are interested in (Major-or-Minor-Arc), (1 for Major, 0 for Minor) 
 (4) The name of your input file (e.g. 'EventList_ExampleInputFile.txt'), and 
-(5) Whether you want to make some brief plots of your results (set VisualizeMyResults to 1 if so).
-*for (5), the script plots excitation and excitation ratios as a function of depth. 
+(6) How many overtones you want to use, 
+(7) Which earth model you want to use,
+(8) Whether you want phase or amplitude. 
 
 The other thing you need to set is your input file, which contains information 
 about every event for which you want to calculate excitation.
