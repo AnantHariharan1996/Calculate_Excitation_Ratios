@@ -40,37 +40,7 @@ In the first, each row contains excitation for the events in the corresponding r
 In the second, each row contains excitation ratios for the events in the corresponding row in the input file. 
 
 CAVEATS:
-1) For Rayleigh waves, this is currently only set up to work at periods between 25-200s: For the fundamental mode
- and first 50 overtones, it can only do 25,40,50,60,75,80,100,120,125,140,150,175,180, and 200s. 
-For the Fundamental Mode, it can do: (25,40,50,55,60,65,70,75,80,85,90,95,100,120,125,140,150,175,180,200)
-Although sometimes these periods physically cannot exist at the larger overtones.
-The max overtones that exist at periods of [25 40 50 60 80 100 120 140 180] 
-would be something like approximatley [50 50 50 46 35 26 23 18 14] 
-
-2) For Love waves, this is only set up to do the FM and first 10 overtones, 
-at periods of 50,75,100,125,150,175s.  
-Due to approaching L = 1, 
-The largest period at B6  available is 150s
-The largest period at B7 available is 125s
-The largest period at B8 available is 100s
-The largest period at B9 available is 100s
-The largest period at B10 available is 75s
-
-NOTE that the code will spit out an error if you choose a period/overtone
-combination that doesn't have an eigenfunction calculated.  
-
-----
-Miscellaneous Notes: 
-
-The folder Branch_Intersection_Calculations also contains two scripts that use equation (1)
-in Hariharan et al., 2021 to calculate the intersection distance between the FM and
-major-arc overtones, for Rayleigh and Love waves. 
-
-The file ATL2a_DistintersectionList_50Overtones contains this for Rayleigh waves, organized by period
-in the left column and each column after corresponding to an increasing overtone number. 
-The folder atl2a_TUC_br0to50 contains files containing period, grp.vel, and phase vel, for the first 50 overtones and FM for ATL2a.
-
-----
+Works only for mode within a certain range, depending on which earth model. The code 
 
 This code is probably not perfect!
 We strive to keep it bug-free, but let us know if there are issues.
