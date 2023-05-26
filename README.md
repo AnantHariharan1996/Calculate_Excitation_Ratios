@@ -1,14 +1,10 @@
-# Calculate_Excitation_Ratios
+# ExciteSurf
 README: 
 
-This folder contains scripts that are designed to help calculate surface wave excitation and excitation ratio.
+This folder contains scripts that are designed to help calculate azimuth-dependent surface wave excitation for different modes, periods, for sources with any depth and moment tensor, and for a range of Earth/Planetary models. 
 The main script that you run is Calc_Excitation_Ratios_Main. 
-You can do this right now, using the preconfigured settings, if you want
-to get a sense for what these codes can do. 
 
-To tailor the code for your application, read below:
-
-STEP 0: Untar all the .zip files
+First, you must untar your folder of 
 
 The only script you should need to -EDIT- is Setup_Calculation_Parameters.m.
 
