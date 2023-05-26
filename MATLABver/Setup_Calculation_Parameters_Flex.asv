@@ -22,8 +22,7 @@ Periodlist = [10:10:50];
 Output_As_Spectra = 0;
 
 % How many overtones should we be considering in the calculation?
-% Set this to 0 for only the fundamental mode, and set to mode number N if
-% you want higher modes up to that number N. 
+% Set this to 0 for only the fundamental mode, and set to 
 MaxN = 0;
 
 % Are we interested in minor or major-arc overtone interference?
@@ -37,10 +36,10 @@ Inputfilename = 'DipSlip_Fault.txt';
 VisualizeMyResults = 0;
 
 % Which velocity model do you want to use?
-% choices are 'atl2a','STW105C','prem','TAYAK'..
+% choices are ATL2a, PREM...
 Velmod = 'atl2a';
 
-% Output source phase or source amplitude? 0 for amplitude, 1 for phase. 
+% Output source phase or source excitation? 0 for Excitation, 1 for phase. 
 ExcitationOrPhase = 0;
 
 %%%%%%%%%%%
