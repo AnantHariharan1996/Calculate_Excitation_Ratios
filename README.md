@@ -4,8 +4,6 @@ README:
 This folder contains scripts that are designed to help calculate azimuth-dependent surface wave excitation for different modes, periods, for sources with any depth and moment tensor, and for a range of Earth/Planetary models. 
 The main script that you run is Calc_Excitation_Ratios_Main. 
 
-First, you must untar your folder of 
-
 The only script you should need to -EDIT- is Setup_Calculation_Parameters.m.
 
 In Setup_Calculation_Parameters.m, you must tell the code 
@@ -13,8 +11,9 @@ In Setup_Calculation_Parameters.m, you must tell the code
 (2) Which periods you are interested in, (enter a vector of periods, e.g. [50 100])
 (3) Which kind of excitation you are interested in (Major-or-Minor-Arc), (1 for Major, 0 for Minor) 
 (4) The name of your input file (e.g. 'EventList_ExampleInputFile.txt'), and 
-(5) Whether you want to make some brief plots of your results (set VisualizeMyResults to 1 if so).
-*for (5), the script plots excitation and excitation ratios as a function of depth. 
+(6) How many overtones you want to use, 
+(7) Which earth model you want to use,
+(8) Whether you want phase or amplitude. 
 
 The other thing you need to set is your input file, which contains information 
 about every event for which you want to calculate excitation.
@@ -41,37 +40,7 @@ In the first, each row contains excitation for the events in the corresponding r
 In the second, each row contains excitation ratios for the events in the corresponding row in the input file. 
 
 CAVEATS:
-1) For Rayleigh waves, this is currently only set up to work at periods between 25-200s: For the fundamental mode
- and first 50 overtones, it can only do 25,40,50,60,75,80,100,120,125,140,150,175,180, and 200s. 
-For the Fundamental Mode, it can do: (25,40,50,55,60,65,70,75,80,85,90,95,100,120,125,140,150,175,180,200)
-Although sometimes these periods physically cannot exist at the larger overtones.
-The max overtones that exist at periods of [25 40 50 60 80 100 120 140 180] 
-would be something like approximatley [50 50 50 46 35 26 23 18 14] 
-
-2) For Love waves, this is only set up to do the FM and first 10 overtones, 
-at periods of 50,75,100,125,150,175s.  
-Due to approaching L = 1, 
-The largest period at B6  available is 150s
-The largest period at B7 available is 125s
-The largest period at B8 available is 100s
-The largest period at B9 available is 100s
-The largest period at B10 available is 75s
-
-NOTE that the code will spit out an error if you choose a period/overtone
-combination that doesn't have an eigenfunction calculated.  
-
-----
-Miscellaneous Notes: 
-
-The folder Branch_Intersection_Calculations also contains two scripts that use equation (1)
-in Hariharan et al., 2021 to calculate the intersection distance between the FM and
-major-arc overtones, for Rayleigh and Love waves. 
-
-The file ATL2a_DistintersectionList_50Overtones contains this for Rayleigh waves, organized by period
-in the left column and each column after corresponding to an increasing overtone number. 
-The folder atl2a_TUC_br0to50 contains files containing period, grp.vel, and phase vel, for the first 50 overtones and FM for ATL2a.
-
-----
+Works only for mode within a certain range, depending on which earth model. The code 
 
 This code is probably not perfect!
 We strive to keep it bug-free, but let us know if there are issues.
