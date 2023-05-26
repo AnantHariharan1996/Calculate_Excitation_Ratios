@@ -32,7 +32,7 @@ VisualizeMyResults = 0;
 
 % Which velocity model do you want to use?
 % choices are ATL2a, PREM...
-Velmod = 'STW105C';
+Velmod = 'atl2a';
 
 % Output excitation at all frequencies on an earthquake-by-earthquake
 % basis?
