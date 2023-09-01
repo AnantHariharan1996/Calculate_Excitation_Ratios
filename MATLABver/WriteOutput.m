@@ -44,6 +44,7 @@ end
 
 % Set information corresponding to 
 % modes that are out of the search domain to zero.
+if exist('ErrorList_N','var') == 1
 for jklm = 1:length(ErrorList_N)
     currN = ErrorList_N(jklm);
     currT = ErrorList_T(jklm);
@@ -52,7 +53,7 @@ for jklm = 1:length(ErrorList_N)
     MegaMat_Phase(3:end,idx) = NaN;
     
 end
-
+end
 
 if ExcitationOrPhase==1
 % Output Raw phase as text file

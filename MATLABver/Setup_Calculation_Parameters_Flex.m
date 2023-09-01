@@ -10,12 +10,12 @@ Eigpath = '/Users/ananthariharan/Github/Calculate_Excitation_Ratios';
 
 % Are we interested in Rayleigh or Love wave overtone interference?
 % Set the variable to 1 for Rayleigh, 0 for Love
-RayleighOrLove = 0;
+RayleighOrLove = 1;
 
 % Enter the list of periods you want to use here
 % This vector can even be just a 1x1 scalar or a vector
 % e.g. Periodlist = [50 75 100 125];
-Periodlist = [10:10:50];
+Periodlist = [100 250 500];
 
 % Output excitation at all frequencies on an earthquake-by-earthquake
 % basis? Set to 1 if you want this option used.
@@ -31,7 +31,7 @@ MaxN = 0;
 MinorOrMajor = 0;
 
 %Enter the input file name here in quotes (' '). It must be on your path.
-Inputfilename = 'DipSlip_Fault.txt';
+Inputfilename = 'Mw72_19920425.txt';
 
 % Visualize the Results? This is only really useful when thinking about excitation ratios.
 VisualizeMyResults = 0;

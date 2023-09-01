@@ -5,15 +5,15 @@ clear; clc; close all;
 
 %% Setup parameters here
 Periods2Find = [50 75];
-ModeNumbers2Find = [1 1];
+ModeNumbers2Find = [0 0];
 
 % Are we interested in Rayleigh or Love waves (spheroidal or toroidal)?
 % Set the variable to 1 for Rayleigh, 0 for Love
-RayleighOrLove = 0;
+RayleighOrLove = 1;
 
 % Which velocity model do you want to use?
 % choices are ATL2a, PREM...
-Velmod = 'TAYAK';
+Velmod = 'atl2a';
 
 % Y-axis range in km
 yaxisrange = [0 1000]
