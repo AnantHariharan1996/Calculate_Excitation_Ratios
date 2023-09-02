@@ -19,8 +19,8 @@ In Setup_Calculation_Parameters.m, you must tell the code
 2. Which periods you are interested in, (enter a vector of periods, e.g. [50 100])
 3. Which kind of excitation you are interested in (Major-or-Minor-Arc), (1 for Major, 0 for Minor) 
 4. The name of your input file (e.g. 'EventList_ExampleInputFile.txt') 
-5. How many overtones you want to use, 
-6. Which earth model you want to use. (The code comes with the possibilities of using ATL2a,PREM,STW105-C,and TAYAK.
+5. How many overtones (MaxN) you want to use, 
+6. Which earth model (Velmod) you want to use. (The code comes with the possibilities of using ATL2a,PREM,STW105-C,and TAYAK.
 7. Whether you want phase or amplitude predictions.
 
 ## Input File Format
