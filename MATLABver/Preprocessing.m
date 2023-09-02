@@ -1,5 +1,4 @@
 
-%%%%%%%%%%%%%%%% Edit Parameters above here
 if RayleighOrLove
 modename = 'spheroidal';
 else

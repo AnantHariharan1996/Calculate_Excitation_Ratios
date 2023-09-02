@@ -28,10 +28,10 @@ end
 end
 %%%%%Visualize the Results%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-if VisualizeMyResults
-if Output_As_Spectra
-Visualize_Spectra
-else
-Visualize_Results
-end
-end
+% if VisualizeMyResults
+% if Output_As_Spectra
+% Visualize_Spectra
+% else
+% Visualize_Results
+% end
+% end
