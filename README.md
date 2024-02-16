@@ -44,13 +44,14 @@ you can run the main script, ExciteSurf_Main.m.
 ## Output File Format
 
 The output file contains the raw excitation of each surface wave mode.
-Each column corresponds to a different surface wave mode with a different radial order n and also a different period, corresponding to a different angular order.
-The first row is the mode number. The second row is the period we wanted to search for. 
+Each column corresponds to the excitation for a different surface wave mode with a different radial order n and a different period, corresponding to a different angular order.
+HEADERS: The first row is the mode number. The second row is the period we wanted to search for. 
 The third row is the -actual- period that corresponds to the specific n,l combination of that- 
 this is typically extremely close to the period you wanted to find.
-Each row below this corresponds to the corresponding row in your input file. 
 
-CAVEATS:
+Each row below this corresponds to excitation. So if you want excitation ratios (e.g. relative to the fundamental mode), divide excitation by the mode corresponding to the fundamental mode.
+
+## CAVEATS:
 Works only for mode within a certain range, depending on which earth model. 
 The code will let you know what modes are not retrieved if we don't have the corresponding eigenfunction saved.
 
