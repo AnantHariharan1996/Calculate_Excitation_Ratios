@@ -43,7 +43,6 @@ you can run the main script, ExciteSurf_Main.m.
 
 ## Output File Format
 
-The other thing you might want to know is the format of the output files:
 The output file contains the raw excitation of each surface wave mode.
 Each column corresponds to a different surface wave mode with a different radial order n and also a different period, corresponding to a different angular order.
 The first row is the mode number. The second row is the period we wanted to search for. 
