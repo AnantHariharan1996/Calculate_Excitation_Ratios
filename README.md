@@ -22,7 +22,7 @@ In Setup_Calculation_Parameters.m, you must tell the code
 5. How many overtones (MaxN) you want to use, 
 6. Which earth model (Velmod) you want to use. (The code comes with the possibilities of using ATL2a,PREM,STW105-C,and TAYAK.
 7. Whether you want phase or amplitude predictions.
-8. If you want the code to give you every frequency possible, instead of discrete periods as in option (2) you can set Output_As_Spectra = 1.
+8. If you want the code to give you excitation at every frequency possible, instead of at discrete periods as in option (2), you can set Output_As_Spectra = 1.
 
 ## Input File Format
 
