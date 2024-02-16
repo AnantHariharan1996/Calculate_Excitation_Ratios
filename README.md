@@ -20,7 +20,7 @@ In Setup_Calculation_Parameters.m, you must tell the code
 3. Which kind of excitation you are interested in (Major-or-Minor-Arc), (1 for Major, 0 for Minor) 
 4. The name of your input file (e.g. 'EventList_ExampleInputFile.txt') 
 5. How many overtones (MaxN) you want to use, 
-6. Which earth model (Velmod) you want to use. (The code comes with the possibilities of using ATL2a,PREM,STW105-C,and TAYAK.
+6. Which earth model (Velmod) you want to use. (The code comes with the possibilities of using ATL2a,PREM,STW105-C,and TAYAK (A Mars Model).
 7. Whether you want phase or amplitude predictions.
 8. If you want the code to give you excitation at every frequency possible, instead of at discrete periods as in option (2), you can set Output_As_Spectra = 1.
 
@@ -53,7 +53,7 @@ this is typically extremely close to the period you wanted to find.
 Each row below this corresponds to excitation. So if you want excitation ratios (e.g. relative to the fundamental mode), divide excitation by the mode corresponding to the fundamental mode.
 
 ## CAVEATS:
-Works only for mode within a certain range, depending on which earth model. 
+Works only for mode within a certain range, depending on which earth model you've decided to use. 
 The code will let you know what modes are not retrieved if we don't have the corresponding eigenfunction saved.
 
 This code is probably not perfect!
