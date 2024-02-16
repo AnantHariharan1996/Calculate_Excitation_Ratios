@@ -26,7 +26,7 @@ In Setup_Calculation_Parameters.m, you must tell the code
 
 ## Input File Format
 
-In Setup_Calculation_Parameters.m, you need to set up your input file, which contains information 
+In Setup_Calculation_Parameters_Flex.m, you need to set up your input file, which contains information 
 about every event for which you want to calculate excitation.
 The input file is a text file. It should have 8 columns. 
 The 1st is depth (in km), 
