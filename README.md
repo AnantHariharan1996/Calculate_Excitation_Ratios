@@ -12,7 +12,7 @@ Clone this repository and add all folders to your MATLAB path. Specifically, you
 
 The script that you run to calculate excitation ratios is ExciteSurf_Main.m. 
 
-The only script you should need to *edit* is Setup_Calculation_Parameters.m.
+The only script you should need to *edit* is Setup_Calculation_Parameters_Flex.m.
 
 In Setup_Calculation_Parameters.m, you must tell the code 
 1. Which surface wave you are interested in (edit the variable RayleighorLove, setting it 1 for Rayleigh and 0 for Love), 
