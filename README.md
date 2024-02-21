@@ -55,6 +55,7 @@ Each row below this corresponds to excitation. So if you want excitation ratios 
 ## CAVEATS:
 Works only for mode within a certain range, depending on which earth model you've decided to use. 
 The code will let you know what modes are not retrieved if we don't have the corresponding eigenfunction saved.
+Also, currently the planetary adius is bard coded to earth's value, so these results are not yet valid for the Mars model provided.
 
 This code is probably not perfect!
 We strive to keep it bug-free, but let us know if there are issues.
