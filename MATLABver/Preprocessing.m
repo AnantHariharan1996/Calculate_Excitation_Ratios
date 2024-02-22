@@ -24,6 +24,9 @@ for ijk = 1:length(Periodlist)
     for n = 0:MaxN
         currdx = find(N == n);
         tmpperiodlist = Periods(currdx);
+        if length(currdx) == 0
+            disp(['No eigenfunctions for n=' num2str(n) ',for ' Velmod])
+        end
         if min(Periods) > Period || max(Periods) < Period
            disp(['ERROR: eigenfunctions do not span the period of interest, ' num2str(Period) 's, for n=' num2str(n) '.']) 
            disp(['To avoid potential errors, use periods to be between ' num2str(max(tmpperiodlist)) ' and ' num2str(min(tmpperiodlist)) 's'])  
